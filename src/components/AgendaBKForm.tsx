@@ -384,42 +384,42 @@ export default function AgendaBKForm({ onBack }: AgendaBKFormProps) {
   });
 
   return (
-    <div className="flex-1 flex flex-col h-full bg-[#0a0b0d] p-4 lg:p-6 overflow-y-auto" id="agenda-bk-dashboard">
+    <div className="flex-1 flex flex-col h-full bg-[#f8fafc] p-4 lg:p-6 overflow-y-auto animate-fade-in" id="agenda-bk-dashboard">
       
       {/* Upper header action area */}
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border border-zinc-800 bg-zinc-900/40 p-6 rounded-2xl glass-panel relative overflow-hidden mb-6">
-        <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-rose-500 via-cyan-500 to-amber-500 opacity-60" />
+      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border border-slate-200 bg-white p-6 rounded-2xl glass-panel relative overflow-hidden mb-6 shadow-sm">
+        <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-rose-500 via-cyan-400 to-amber-500 opacity-80" />
         
         <div className="flex items-center space-x-4">
           <button 
             onClick={onBack}
-            className="p-2 bg-zinc-850 hover:bg-zinc-800 text-zinc-400 hover:text-white border border-zinc-700/60 hover:border-zinc-500/50 rounded-xl transition-all duration-150 active:scale-95 cursor-pointer"
+            className="p-2.5 bg-slate-100 hover:bg-slate-200 text-zinc-500 hover:text-slate-800 border border-slate-202 rounded-xl transition-all duration-150 active:scale-95 cursor-pointer shadow-sm"
             title="Kembali ke Menu Utama"
           >
-            <ArrowLeftCircle className="w-6 h-6 text-rose-400" />
+            <ArrowLeftCircle className="w-5 h-5 text-rose-600" />
           </button>
           <div className="space-y-1">
-            <h2 className="text-xl lg:text-2xl font-display font-bold text-white flex items-center gap-2">
+            <h2 className="text-xl lg:text-2xl font-display font-bold text-slate-800 flex items-center gap-2">
               <span>Form Agenda Kerja BK SPANJU</span>
-              <span className="text-xs bg-rose-500/10 text-rose-400 border border-rose-400/20 px-2.5 py-0.5 rounded-full font-sans">
+              <span className="text-[10px] uppercase tracking-wider bg-rose-50 text-rose-600 border border-rose-200 px-2.5 py-0.5 rounded-full font-display font-semibold">
                 Electronic Schedule
               </span>
             </h2>
-            <p className="text-xs text-zinc-400">
+            <p className="text-xs text-slate-600 font-sans font-medium">
               Pencatatan rincian agenda harian bimbingan konseling dan pengunduhan laporan spreadsheet secara real-time.
             </p>
           </div>
         </div>
 
         {/* Database state switch panel */}
-        <div className="bg-zinc-950/70 p-1.5 border border-zinc-800 rounded-xl flex items-center space-x-1 shadow-inner shrink-0">
+        <div className="bg-slate-100 p-1 border border-slate-202 rounded-xl flex items-center space-x-1 shadow-inner shrink-0">
           <button
             type="button"
             onClick={() => setDbMode('local')}
-            className={`px-3 py-1.5 text-xs font-display font-medium rounded-lg transition-all duration-150 cursor-pointer ${
+            className={`px-3.5 py-1.5 text-[11px] font-display font-extrabold rounded-lg transition-all duration-150 cursor-pointer ${
               dbMode === 'local' 
-                ? 'bg-amber-500/15 text-amber-400 border border-amber-500/30' 
-                : 'text-zinc-500 hover:text-zinc-305'
+                ? 'bg-amber-100 border border-amber-300 text-amber-800 shadow-sm' 
+                : 'text-zinc-500 hover:text-zinc-700'
             }`}
           >
             Penyimpanan Lokal
@@ -433,12 +433,12 @@ export default function AgendaBKForm({ onBack }: AgendaBKFormProps) {
               }
               setDbMode('supabase');
             }}
-            className={`px-3 py-1.5 text-xs font-display font-medium rounded-lg transition-all duration-150 flex items-center space-x-1 cursor-pointer ${
+            className={`px-3.5 py-1.5 text-[11px] font-display font-extrabold rounded-lg transition-all duration-150 flex items-center space-x-1.5 cursor-pointer ${
               dbMode === 'supabase' 
-                ? 'bg-rose-500/15 text-rose-400 border border-rose-500/30 shadow-md' 
+                ? 'bg-rose-100 border border-rose-300 text-rose-850 shadow-sm' 
                 : isSupabaseConfigured 
-                  ? 'text-zinc-500 hover:text-zinc-350' 
-                  : 'text-zinc-650 line-through opacity-50 cursor-not-allowed'
+                  ? 'text-zinc-500 hover:text-zinc-700' 
+                  : 'text-zinc-400 line-through opacity-40 cursor-not-allowed'
             }`}
           >
             <Database className="w-3.5 h-3.5" />
@@ -449,43 +449,43 @@ export default function AgendaBKForm({ onBack }: AgendaBKFormProps) {
 
       {/* SQL Script Instruction Helper Bar */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 mb-6">
-        <div className="glass-panel border border-zinc-800 p-5 rounded-xl bg-zinc-900/10 flex flex-col justify-between">
+        <div className="bg-white border border-slate-205 p-5 rounded-xl flex flex-col justify-between shadow-sm">
           <div className="space-y-1">
-            <span className="text-[10px] uppercase font-mono tracking-wider font-semibold text-zinc-550">Informasi Agenda</span>
-            <h4 className="text-sm font-semibold font-display text-zinc-150">Alur Penyimpanan Program</h4>
-            <p className="text-xs text-zinc-455 pt-1">
+            <span className="text-[10px] uppercase font-mono tracking-wider font-bold text-slate-400">Informasi Agenda</span>
+            <h4 className="text-sm font-bold font-display text-slate-800">Alur Penyimpanan Program</h4>
+            <p className="text-xs text-slate-500 pt-1 font-medium">
               Data agenda harian bimbingan konseling terdiri dari hari, tanggal, sasaran, link bukti fisik dsb.
             </p>
           </div>
-          <p className="text-[11px] text-zinc-450 mt-4 leading-relaxed p-2.5 rounded-lg border border-zinc-800 bg-zinc-950/40">
+          <div className="text-[11px] text-slate-750 mt-4 leading-relaxed p-2.5 rounded-xl border border-slate-200 bg-slate-50 font-bold">
             {isSupabaseConfigured ? (
-              <span className="text-emerald-400 font-semibold">• Cloud Sync Aktif. Data tersimpan di Supabase secara real-time.</span>
+              <span className="text-emerald-700">• Cloud Sync Aktif. Data tersimpan di Supabase secara real-time.</span>
             ) : (
-              <span className="text-amber-400 font-semibold">• Mode Sandbox / Local Aktif. Semua rincian di-enkripsi lokal.</span>
+              <span className="text-amber-700">• Mode Sandbox / Local Aktif. Semua rincian di-enkripsi lokal.</span>
             )}
-          </p>
+          </div>
         </div>
 
-        <div className="lg:col-span-2 glass-panel border border-zinc-800 p-5 rounded-xl bg-zinc-900/10 flex flex-col justify-between">
+        <div className="lg:col-span-2 bg-white border border-slate-205 p-5 rounded-xl flex flex-col justify-between shadow-sm">
           <div className="space-y-1">
             <div className="flex justify-between items-start">
               <div>
-                <span className="text-[10px] uppercase font-mono tracking-wider font-semibold text-rose-450">Konfigurasi Pengembang</span>
-                <h4 className="text-sm font-semibold font-display text-zinc-150">Skema SQL Agenda BK (agenda_bk)</h4>
+                <span className="text-[10px] uppercase font-mono tracking-wider font-bold text-rose-500">Konfigurasi Pengembang</span>
+                <h4 className="text-sm font-bold font-display text-slate-800">Skema SQL Agenda BK (agenda_bk)</h4>
               </div>
               <button
                 onClick={copySqlSchema}
-                className="px-2.5 py-1 text-[10px] font-display font-medium text-cyan-400 hover:text-white bg-cyan-950/40 hover:bg-cyan-600 rounded border border-cyan-800/60 hover:border-cyan-500 flex items-center space-x-1 cursor-pointer transition-all duration-100 active:scale-95"
+                className="px-2.5 py-1 text-[10px] font-display font-bold text-cyan-700 hover:text-white bg-cyan-50 hover:bg-cyan-600 rounded-lg border border-cyan-200 hover:border-transparent flex items-center space-x-1 cursor-pointer transition-all duration-100 active:scale-95 shadow-sm"
               >
-                {showCopied ? <CheckCircle2 className="w-3 h-3 text-emerald-400" /> : <Copy className="w-3 h-3" />}
+                {showCopied ? <CheckCircle2 className="w-3 h-3 text-emerald-500" /> : <Copy className="w-3 h-3" />}
                 <span>{showCopied ? 'Tersalin' : 'Salin SQL'}</span>
               </button>
             </div>
-            <p className="text-xs text-zinc-400 pb-2">
+            <p className="text-xs text-slate-500 pb-2 font-medium">
               Jalankan perintah SQL ini pada Editor Supabase agar tabel sync sempurna:
             </p>
           </div>
-          <pre className="text-[9px] font-mono bg-zinc-950/90 text-amber-300 p-2.5 rounded-lg border border-zinc-850 overflow-x-auto leading-relaxed max-h-20">
+          <pre className="text-[9px] font-mono bg-slate-50 text-amber-900 p-2.5 rounded-xl border border-slate-200 overflow-x-auto leading-relaxed max-h-20 font-bold">
 {`create table public.agenda_bk (
   id uuid default gen_random_uuid() not null primary key,
   tanggal date not null,
@@ -502,13 +502,13 @@ export default function AgendaBKForm({ onBack }: AgendaBKFormProps) {
       {alertInfo.message && (
         <div className={`p-4 rounded-xl border mb-6 flex items-start space-x-3 text-xs leading-relaxed ${
           alertInfo.type === 'error' 
-            ? 'bg-rose-950/30 text-rose-200 border-rose-800/40' 
-            : 'bg-emerald-950/30 text-emerald-200 border-emerald-800/40'
+            ? 'bg-rose-50 text-rose-800 border-rose-200' 
+            : 'bg-emerald-50 text-emerald-800 border-emerald-205'
         }`}>
           {alertInfo.type === 'error' ? (
-            <AlertCircle className="w-5 h-5 text-rose-400 shrink-0 mt-0.5" />
+            <AlertCircle className="w-5 h-5 text-rose-600 shrink-0 mt-0.5" />
           ) : (
-            <CheckCircle2 className="w-5 h-5 text-emerald-400 shrink-0 mt-0.5" />
+            <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0 mt-0.5" />
           )}
           <span>{alertInfo.message}</span>
         </div>
@@ -516,18 +516,17 @@ export default function AgendaBKForm({ onBack }: AgendaBKFormProps) {
 
       {/* Main Core Form row layout */}
       <div className="grid grid-cols-1 xl:grid-cols-12 gap-6 items-start">
-        
-        {/* Left Side: Input form for scheduling (take 5 columns) */}
-        <div className="xl:col-span-5 glass-panel border border-zinc-800 rounded-2xl p-5 space-y-4" id="agenda-entry-form">
-          <div className="flex items-center justify-between pb-2 border-b border-zinc-850">
-            <h3 className="font-display font-bold text-sm text-zinc-100 flex items-center space-x-2">
-              <Plus className="w-5 h-5 text-rose-400" />
+             {/* Left Side: Input form for scheduling (take 5 columns) */}
+        <div className="xl:col-span-5 bg-white border border-slate-200 rounded-2xl p-5 space-y-4 shadow-sm" id="agenda-entry-form">
+          <div className="flex items-center justify-between pb-2 border-b border-slate-100">
+            <h3 className="font-display font-bold text-sm text-slate-800 flex items-center space-x-2">
+              <Plus className="w-5 h-5 text-rose-550" />
               <span>{editingId ? 'Edit Agenda Terdaftar' : 'Buat Agenda Kegiatan Baru'}</span>
             </h3>
             {editingId && (
               <button 
                 onClick={clearForm}
-                className="text-[10px] text-zinc-400 hover:text-white bg-zinc-850 py-1 px-2 border border-zinc-700/80 rounded"
+                className="text-[10px] text-slate-500 hover:text-slate-800 bg-slate-100 py-1 px-2 border border-slate-200 rounded cursor-pointer"
               >
                 Batal Edit
               </button>
@@ -539,127 +538,127 @@ export default function AgendaBKForm({ onBack }: AgendaBKFormProps) {
             {/* Input 1: Hari & Tanggal */}
             <div className="grid grid-cols-2 gap-3.5">
               <div>
-                <label className="block text-[10px] text-zinc-500 uppercase font-mono tracking-wider mb-1 font-semibold">Tanggal Kegiatan</label>
+                <label className="block text-[10px] text-slate-550 uppercase font-mono tracking-wider mb-1 font-bold">Tanggal Kegiatan</label>
                 <div className="relative">
-                  <Calendar className="absolute left-3 top-2.5 w-4 h-4 text-zinc-500" />
+                  <Calendar className="absolute left-3 top-2.5 w-4 h-4 text-slate-400" />
                   <input
                     type="date"
                     value={tanggal}
                     onChange={(e) => setTanggal(e.target.value)}
-                    className="w-full bg-zinc-950 border border-zinc-850 rounded-xl pl-9 pr-3 py-2 text-xs text-zinc-200 focus:outline-none focus:border-rose-500 font-mono"
+                    className="w-full bg-white border border-slate-200 rounded-xl pl-9 pr-3 py-2 text-xs text-slate-800 focus:outline-none focus:border-rose-500 font-mono"
                   />
                 </div>
               </div>
 
               <div>
-                <label className="block text-[10px] text-zinc-500 uppercase font-mono tracking-wider mb-1 font-semibold">Hari (Otomatis)</label>
+                <label className="block text-[10px] text-slate-550 uppercase font-mono tracking-wider mb-1 font-bold">Hari (Otomatis)</label>
                 <input
                   type="text"
                   placeholder="Hari"
                   value={hari}
                   readOnly
-                  className="w-full bg-zinc-900 border border-zinc-850 rounded-xl px-3 py-2 text-xs text-zinc-400 font-mono font-medium focus:outline-none cursor-not-allowed"
+                  className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-xs text-slate-500 font-mono font-bold focus:outline-none cursor-not-allowed"
                 />
               </div>
             </div>
 
             {/* Input 2: Uraian Kegiatan Stack of 8 item rows (Aline berjajar vertikal ke bawah) */}
-            <div className="space-y-2 border border-zinc-850 bg-zinc-950/40 p-4 rounded-xl">
+            <div className="space-y-2 border border-slate-200 bg-slate-55 p-4 rounded-xl bg-slate-50">
               <div className="flex items-center justify-between">
-                <label className="block text-[10px] text-zinc-400 uppercase font-mono tracking-wider font-semibold">
+                <label className="block text-[10px] text-slate-600 uppercase font-mono tracking-wider font-bold">
                   Uraian Kegiatan (8 Baris Berjajar Vertikal ke Bawah)
                 </label>
-                <span className="text-[9px] bg-rose-950/40 border border-rose-900/40 text-rose-400 px-1.5 py-0.5 rounded font-mono">
+                <span className="text-[9px] bg-rose-50 border border-rose-200 text-rose-600 px-1.5 py-0.5 rounded font-mono font-bold">
                   Wajib isi min. Baris 1
                 </span>
               </div>
 
               <div className="space-y-2 max-h-76 overflow-y-auto pr-1">
                 <div className="flex items-center space-x-2">
-                  <span className="text-[10px] text-rose-400 font-mono w-5 font-bold">1.</span>
+                  <span className="text-[10px] text-rose-600 font-mono w-5 font-bold">1.</span>
                   <input
                     type="text"
                     placeholder="Contoh: Memberikan layanan konseling perorangan"
                     value={uraian1}
                     onChange={(e) => setUraian1(e.target.value)}
-                    className="flex-1 bg-zinc-950 border border-zinc-850 hover:border-zinc-800 rounded-lg px-2 py-1.5 text-xs text-zinc-200 focus:outline-none focus:border-rose-500"
+                    className="flex-1 bg-white border border-slate-200 hover:border-rose-250 rounded-lg px-2 py-1.5 text-xs text-slate-800 focus:outline-none focus:border-rose-500"
                   />
                 </div>
 
                 <div className="flex items-center space-x-2">
-                  <span className="text-[10px] text-zinc-500 font-mono w-5">2.</span>
+                  <span className="text-[10px] text-slate-400 font-mono w-5 font-bold">2.</span>
                   <input
                     type="text"
                     placeholder="Uraian Kegiatan Baris Ke-2 (Opsional)"
                     value={uraian2}
                     onChange={(e) => setUraian2(e.target.value)}
-                    className="flex-1 bg-zinc-950 border border-zinc-850 hover:border-zinc-800 rounded-lg px-2 py-1.5 text-xs text-zinc-300 focus:outline-none focus:border-rose-500"
+                    className="flex-1 bg-white border border-slate-200 hover:border-rose-250 rounded-lg px-2 py-1.5 text-xs text-slate-800 focus:outline-none focus:border-rose-500"
                   />
                 </div>
 
                 <div className="flex items-center space-x-2">
-                  <span className="text-[10px] text-zinc-500 font-mono w-5">3.</span>
+                  <span className="text-[10px] text-slate-400 font-mono w-5 font-bold">3.</span>
                   <input
                     type="text"
                     placeholder="Uraian Kegiatan Baris Ke-3 (Opsional)"
                     value={uraian3}
                     onChange={(e) => setUraian3(e.target.value)}
-                    className="flex-1 bg-zinc-950 border border-zinc-850 hover:border-zinc-800 rounded-lg px-2 py-1.5 text-xs text-zinc-300 focus:outline-none focus:border-rose-500"
+                    className="flex-1 bg-white border border-slate-200 hover:border-rose-250 rounded-lg px-2 py-1.5 text-xs text-slate-800 focus:outline-none focus:border-rose-500"
                   />
                 </div>
 
                 <div className="flex items-center space-x-2">
-                  <span className="text-[10px] text-zinc-500 font-mono w-5">4.</span>
+                  <span className="text-[10px] text-slate-400 font-mono w-5 font-bold">4.</span>
                   <input
                     type="text"
                     placeholder="Uraian Kegiatan Baris Ke-4 (Opsional)"
                     value={uraian4}
                     onChange={(e) => setUraian4(e.target.value)}
-                    className="flex-1 bg-zinc-950 border border-zinc-850 hover:border-zinc-800 rounded-lg px-2 py-1.5 text-xs text-zinc-300 focus:outline-none focus:border-rose-500"
+                    className="flex-1 bg-white border border-slate-200 hover:border-rose-250 rounded-lg px-2 py-1.5 text-xs text-slate-800 focus:outline-none focus:border-rose-500"
                   />
                 </div>
 
                 <div className="flex items-center space-x-2">
-                  <span className="text-[10px] text-zinc-500 font-mono w-5">5.</span>
+                  <span className="text-[10px] text-slate-400 font-mono w-5 font-bold">5.</span>
                   <input
                     type="text"
                     placeholder="Uraian Kegiatan Baris Ke-5 (Opsional)"
                     value={uraian5}
                     onChange={(e) => setUraian5(e.target.value)}
-                    className="flex-1 bg-zinc-950 border border-zinc-850 hover:border-zinc-800 rounded-lg px-2 py-1.5 text-xs text-zinc-300 focus:outline-none focus:border-rose-500"
+                    className="flex-1 bg-white border border-slate-200 hover:border-rose-250 rounded-lg px-2 py-1.5 text-xs text-slate-800 focus:outline-none focus:border-rose-500"
                   />
                 </div>
 
                 <div className="flex items-center space-x-2">
-                  <span className="text-[10px] text-zinc-500 font-mono w-5">6.</span>
+                  <span className="text-[10px] text-slate-400 font-mono w-5 font-bold">6.</span>
                   <input
                     type="text"
                     placeholder="Uraian Kegiatan Baris Ke-6 (Opsional)"
                     value={uraian6}
                     onChange={(e) => setUraian6(e.target.value)}
-                    className="flex-1 bg-zinc-950 border border-zinc-850 hover:border-zinc-800 rounded-lg px-2 py-1.5 text-xs text-zinc-300 focus:outline-none focus:border-rose-500"
+                    className="flex-1 bg-white border border-slate-200 hover:border-rose-250 rounded-lg px-2 py-1.5 text-xs text-slate-800 focus:outline-none focus:border-rose-500"
                   />
                 </div>
 
                 <div className="flex items-center space-x-2">
-                  <span className="text-[10px] text-zinc-500 font-mono w-5">7.</span>
+                  <span className="text-[10px] text-slate-400 font-mono w-5 font-bold">7.</span>
                   <input
                     type="text"
                     placeholder="Uraian Kegiatan Baris Ke-7 (Opsional)"
                     value={uraian7}
                     onChange={(e) => setUraian7(e.target.value)}
-                    className="flex-1 bg-zinc-950 border border-zinc-850 hover:border-zinc-800 rounded-lg px-2 py-1.5 text-xs text-zinc-300 focus:outline-none focus:border-rose-500"
+                    className="flex-1 bg-white border border-slate-200 hover:border-rose-250 rounded-lg px-2 py-1.5 text-xs text-slate-800 focus:outline-none focus:border-rose-500"
                   />
                 </div>
 
                 <div className="flex items-center space-x-2">
-                  <span className="text-[10px] text-zinc-500 font-mono w-5">8.</span>
+                  <span className="text-[10px] text-slate-400 font-mono w-5 font-bold">8.</span>
                   <input
                     type="text"
                     placeholder="Uraian Kegiatan Baris Ke-8 (Opsional)"
                     value={uraian8}
                     onChange={(e) => setUraian8(e.target.value)}
-                    className="flex-1 bg-zinc-950 border border-zinc-850 hover:border-zinc-800 rounded-lg px-2 py-1.5 text-xs text-zinc-300 focus:outline-none focus:border-rose-500"
+                    className="flex-1 bg-white border border-slate-200 hover:border-rose-250 rounded-lg px-2 py-1.5 text-xs text-slate-800 focus:outline-none focus:border-rose-500"
                   />
                 </div>
               </div>
@@ -668,43 +667,43 @@ export default function AgendaBKForm({ onBack }: AgendaBKFormProps) {
             {/* Input 3: Sasaran & Link Buku/Dokumentasi */}
             <div className="space-y-4">
               <div>
-                <label className="block text-[10px] text-zinc-500 uppercase font-mono tracking-wider mb-1 font-semibold">Sasaran / Layanan BK</label>
+                <label className="block text-[10px] text-slate-550 uppercase font-mono tracking-wider mb-1 font-bold">Sasaran / Layanan BK</label>
                 <div className="relative">
-                  <Users2 className="absolute left-3 top-2.5 w-4 h-4 text-zinc-500" />
+                  <Users2 className="absolute left-3 top-2.5 w-4 h-4 text-slate-400" />
                   <input
                     type="text"
                     placeholder="Contoh: Siswa Kelas IXB, Wali Kelas, Wali Murid"
                     value={sasaran}
                     onChange={(e) => setSasaran(e.target.value)}
-                    className="w-full bg-zinc-950 border border-zinc-850 rounded-xl pl-9 pr-3 py-2 text-xs text-zinc-200 focus:outline-none focus:border-rose-500"
+                    className="w-full bg-white border border-slate-200 rounded-xl pl-9 pr-3 py-2 text-xs text-slate-800 focus:outline-none focus:border-rose-500 font-medium"
                   />
                 </div>
               </div>
 
               <div>
-                <label className="block text-[10px] text-zinc-500 uppercase font-mono tracking-wider mb-1 font-semibold">Link Dokumentasi / Bukti Kegiatan (URL)</label>
+                <label className="block text-[10px] text-slate-550 uppercase font-mono tracking-wider mb-1 font-bold">Link Dokumentasi / Bukti Kegiatan (URL)</label>
                 <div className="relative">
-                  <Link2 className="absolute left-3 top-2.5 w-4 h-4 text-zinc-500" />
+                  <Link2 className="absolute left-3 top-2.5 w-4 h-4 text-slate-400" />
                   <input
                     type="url"
                     placeholder="Contoh: https://drive.google.com/..."
                     value={linkDokumentasi}
                     onChange={(e) => setLinkDokumentasi(e.target.value)}
-                    className="w-full bg-zinc-950 border border-zinc-850 rounded-xl pl-9 pr-3 py-2 text-xs text-zinc-200 focus:outline-none focus:border-rose-500 font-mono"
+                    className="w-full bg-white border border-slate-200 rounded-xl pl-9 pr-3 py-2 text-xs text-slate-800 focus:outline-none focus:border-rose-500 font-mono"
                   />
                 </div>
               </div>
 
               <div>
-                <label className="block text-[10px] text-zinc-500 uppercase font-mono tracking-wider mb-1 font-semibold">Keterangan / Evaluasi Hasil</label>
+                <label className="block text-[10px] text-slate-550 uppercase font-mono tracking-wider mb-1 font-bold">Keterangan / Evaluasi Hasil</label>
                 <div className="relative">
-                  <FileText className="absolute left-3 top-2.5 w-4 h-4 text-zinc-500" />
+                  <FileText className="absolute left-3 top-2.5 w-4 h-4 text-slate-400" />
                   <textarea
                     rows={2}
                     placeholder="Keterangan tambahan atau catatan hasil pemecahan bimbingan..."
                     value={keterangan}
                     onChange={(e) => setKeterangan(e.target.value)}
-                    className="w-full bg-zinc-950 border border-zinc-850 rounded-xl pl-9 pr-3 py-2 text-xs text-zinc-205 focus:outline-none focus:border-rose-500"
+                    className="w-full bg-white border border-slate-200 rounded-xl pl-9 pr-3 py-2 text-xs text-slate-800 focus:outline-none focus:border-rose-500"
                   />
                 </div>
               </div>
@@ -715,14 +714,14 @@ export default function AgendaBKForm({ onBack }: AgendaBKFormProps) {
               <button
                 type="button"
                 onClick={clearForm}
-                className="flex-1 py-2.5 bg-zinc-900 border border-zinc-800 hover:bg-zinc-800 rounded-xl text-xs text-zinc-400 hover:text-white transition duration-155 cursor-pointer text-center"
+                className="flex-1 py-2.5 bg-slate-100 border border-slate-200 hover:bg-slate-200 rounded-xl text-xs text-slate-600 hover:text-slate-800 transition duration-155 cursor-pointer text-center font-bold"
               >
                 Reset / Batal
               </button>
               <button
                 type="submit"
                 disabled={isLoading}
-                className="flex-1 py-2.5 bg-rose-500 hover:bg-rose-400 text-white font-display font-medium text-xs rounded-xl shadow-[0_3px_15px_-3px_rgba(244,63,94,0.4)] transition-all duration-150 transform hover:-translate-y-0.5 active:translate-y-0 cursor-pointer text-center disabled:opacity-50"
+                className="flex-1 py-2.5 bg-rose-600 hover:bg-rose-700 text-white font-display font-medium text-xs rounded-xl shadow-sm transition-all duration-150 transform hover:-translate-y-0.5 active:translate-y-0 cursor-pointer text-center disabled:opacity-50 font-bold"
               >
                 {isLoading ? 'Memproses...' : editingId ? 'Perbarui Agenda' : 'Simpan Agenda Kerja'}
               </button>
@@ -732,21 +731,21 @@ export default function AgendaBKForm({ onBack }: AgendaBKFormProps) {
         </div>
 
         {/* Right Side: List and Download Excel Dashboard (take 7 columns) */}
-        <div className="xl:col-span-7 glass-panel border border-zinc-800 rounded-2xl p-5 space-y-4">
+        <div className="xl:col-span-7 bg-white border border-slate-200 rounded-2xl p-5 space-y-4 shadow-sm">
           
-          <div className="flex flex-col md:flex-row md:items-center justify-between gap-3 pb-3 border-b border-zinc-850">
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-3 pb-3 border-b border-slate-100">
             <div>
-              <h3 className="font-display font-bold text-sm text-zinc-100 flex items-center space-x-2">
-                <Layers className="w-5 h-5 text-rose-400" />
+              <h3 className="font-display font-bold text-sm text-slate-800 flex items-center space-x-2">
+                <Layers className="w-5 h-5 text-rose-500" />
                 <span>Reka Agenda Konseling SPANJU</span>
               </h3>
-              <p className="text-[10px] text-zinc-500 font-mono">DITEMUKAN {filteredAgendas.length} AGENDA LAYANAN</p>
+              <p className="text-[10px] text-slate-400 font-mono font-bold">DITEMUKAN {filteredAgendas.length} AGENDA LAYANAN</p>
             </div>
 
             {/* EXCEL DOWNLOAD BUTTON REPORT */}
             <button
               onClick={handleExportToExcel}
-              className="py-2 px-3.5 bg-emerald-500/10 hover:bg-emerald-500 text-emerald-400 hover:text-slate-950 border border-emerald-500/30 hover:border-transparent rounded-xl text-xs font-display font-medium flex items-center space-x-1.5 transition-all duration-150 cursor-pointer shadow-md active:translate-y-0.5"
+              className="py-2 px-3.5 bg-emerald-50 text-emerald-700 hover:text-white hover:bg-emerald-600 border border-emerald-250 rounded-xl text-xs font-display font-bold flex items-center space-x-1.5 transition-all duration-150 cursor-pointer shadow-sm active:translate-y-0.5"
               title="Download Seluruh Laporan dalam format Microsoft Excel"
             >
               <Download className="w-4 h-4" />
@@ -757,13 +756,13 @@ export default function AgendaBKForm({ onBack }: AgendaBKFormProps) {
           {/* Table Search filters and limits */}
           <div className="flex gap-3">
             <div className="relative flex-1">
-              <Search className="absolute left-3 top-2.5 w-4 h-4 text-zinc-500" />
+              <Search className="absolute left-3 top-2.5 w-4 h-4 text-slate-400" />
               <input 
                 type="text" 
                 placeholder="Cari berdasarkan tanggal, sasaran, kata kunci kegiatan..." 
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full bg-zinc-950 border border-zinc-850 rounded-xl pl-9 pr-4 py-2 text-xs text-zinc-350 placeholder-zinc-500 focus:outline-none focus:border-rose-500 font-sans"
+                className="w-full bg-slate-50 border border-slate-200 rounded-xl pl-9 pr-4 py-2 text-xs text-slate-700 placeholder-slate-400 focus:outline-none focus:border-rose-500 font-sans"
               />
             </div>
           </div>
@@ -771,10 +770,10 @@ export default function AgendaBKForm({ onBack }: AgendaBKFormProps) {
           {/* Agenda Grid Stream Card layout */}
           <div className="space-y-4 max-h-[58vh] overflow-y-auto pr-1">
             {filteredAgendas.length === 0 ? (
-              <div className="text-center py-20 border border-zinc-850/80 rounded-2xl bg-zinc-950/20 text-zinc-500">
-                <Layers className="w-10 h-10 mx-auto mb-3 text-zinc-700" />
-                <p className="text-sm font-semibold">Belum Ada Catatan Agenda Kerja BK</p>
-                <p className="text-xs text-zinc-650 max-w-sm mx-auto mt-1">
+              <div className="text-center py-20 border border-slate-200 rounded-2xl bg-slate-50 text-slate-400">
+                <Layers className="w-10 h-10 mx-auto mb-3 text-slate-355" />
+                <p className="text-sm font-bold">Belum Ada Catatan Agenda Kerja BK</p>
+                <p className="text-xs text-slate-400 max-w-sm mx-auto mt-1 font-medium">
                   Seluruh layanan bimbingan siswa akan terangkum rapi di sini setelah Anda mendaftarkan jadwal harian.
                 </p>
               </div>
@@ -782,20 +781,20 @@ export default function AgendaBKForm({ onBack }: AgendaBKFormProps) {
               filteredAgendas.map((item) => (
                 <div 
                   key={item.id} 
-                  className="bg-zinc-950/80 border border-zinc-850 hover:border-zinc-750 p-4.5 rounded-xl transition duration-150 space-y-3.5 relative overflow-hidden"
+                  className="bg-slate-50/40 border border-slate-200 hover:border-slate-300 p-4.5 rounded-xl transition duration-150 space-y-3.5 relative overflow-hidden shadow-sm"
                 >
-                  <div className="flex items-center justify-between bg-zinc-900/50 p-2.5 rounded-lg border border-zinc-850">
+                  <div className="flex items-center justify-between bg-white p-2.5 rounded-xl border border-slate-202/60 shadow-sm">
                     <div className="flex items-center space-x-2.5">
-                      <div className="p-1.5 bg-rose-500/10 text-rose-455 border border-rose-500/20 rounded-lg">
+                      <div className="p-1.5 bg-rose-50 text-rose-600 border border-rose-100 rounded-lg">
                         <Calendar className="w-4 h-4" />
                       </div>
                       <div>
-                        <div className="text-xs text-zinc-350 font-mono font-medium flex items-center space-x-1.5">
-                          <span className="font-semibold text-white">{item.hari}</span>
-                          <span className="text-zinc-600 text-[10px]">|</span>
+                        <div className="text-xs text-slate-500 font-mono flex items-center space-x-1.5 font-bold">
+                          <span className="font-bold text-slate-800">{item.hari}</span>
+                          <span className="text-slate-300 text-[10px]">|</span>
                           <span>{item.tanggal}</span>
                         </div>
-                        <p className="text-[10px] text-zinc-550 font-semibold uppercase tracking-wider mt-0.5">HARI & TANGGAL</p>
+                        <p className="text-[10px] text-slate-400 font-bold uppercase tracking-wider mt-0.5">HARI & TANGGAL</p>
                       </div>
                     </div>
 
@@ -803,21 +802,21 @@ export default function AgendaBKForm({ onBack }: AgendaBKFormProps) {
                       <button
                         onClick={() => setSelectedAgendaDetail(item)}
                         title="Lihat Detail 8 Baris Uraian"
-                        className="p-1.5 bg-zinc-850 hover:bg-zinc-800 text-zinc-400 hover:text-white border border-zinc-750 hover:border-zinc-600 rounded-lg transition cursor-pointer"
+                        className="p-1.5 bg-slate-100 hover:bg-slate-200 text-slate-600 border border-slate-200 hover:border-slate-300 rounded-lg transition cursor-pointer"
                       >
                         <Eye className="w-3.5 h-3.5" />
                       </button>
                       <button
                         onClick={() => startEditAgenda(item)}
                         title="Edit Data"
-                        className="p-1.5 bg-indigo-950/30 hover:bg-indigo-600 text-indigo-400 hover:text-white border border-indigo-900/40 hover:border-transparent rounded-lg transition cursor-pointer"
+                        className="p-1.5 bg-indigo-50 hover:bg-indigo-600 text-indigo-700 hover:text-white border border-indigo-150 hover:border-transparent rounded-lg transition cursor-pointer"
                       >
                         <Edit2 className="w-3.5 h-3.5" />
                       </button>
                       <button
                         onClick={() => handleDeleteAgenda(item.id)}
                         title="Hapus Data"
-                        className="p-1.5 bg-rose-950/30 hover:bg-rose-600 text-rose-400 hover:text-white border border-rose-900/40 hover:border-transparent rounded-lg transition cursor-pointer"
+                        className="p-1.5 bg-rose-50 hover:bg-rose-600 text-rose-700 hover:text-white border border-rose-150 hover:border-transparent rounded-lg transition cursor-pointer font-bold"
                       >
                         <Trash2 className="w-3.5 h-3.5" />
                       </button>
@@ -827,39 +826,39 @@ export default function AgendaBKForm({ onBack }: AgendaBKFormProps) {
                   {/* Main summary columns preview */}
                   <div className="grid grid-cols-2 gap-4">
                     <div className="space-y-1">
-                      <span className="text-[10px] uppercase font-semibold text-zinc-500 font-mono tracking-wider block">Sasaran Layanan</span>
-                      <p className="text-xs text-zinc-200 font-medium">{item.sasaran}</p>
+                      <span className="text-[10px] uppercase font-bold text-slate-400 font-mono tracking-wider block">Sasaran Layanan</span>
+                      <p className="text-xs text-slate-700 font-bold">{item.sasaran}</p>
                     </div>
 
                     <div className="space-y-1">
-                      <span className="text-[10px] uppercase font-semibold text-zinc-500 font-mono tracking-wider block">Bukti Dokumentasi</span>
+                      <span className="text-[10px] uppercase font-bold text-slate-400 font-mono tracking-wider block">Bukti Dokumentasi</span>
                       {item.link_dokumentasi ? (
                         <a 
                           href={item.link_dokumentasi}
                           target="_blank" 
                           rel="noreferrer referrer"
-                          className="text-xs text-cyan-400 hover:underline flex items-center space-x-1 font-mono break-all line-clamp-1"
+                          className="text-xs text-sky-650 hover:text-sky-800 hover:underline flex items-center space-x-1 font-mono break-all line-clamp-1 font-bold"
                         >
                           <Link2 className="w-3 h-3 shrink-0" />
                           <span>Link Bukti</span>
                         </a>
                       ) : (
-                        <span className="text-[11px] text-zinc-600 italic">Tidak dilampirkan</span>
+                        <span className="text-[11px] text-slate-400 italic font-medium">Tidak dilampirkan</span>
                       )}
                     </div>
                   </div>
 
                   {/* Highlights the first 2 rows of activity description array */}
-                  <div className="bg-zinc-950 p-3 rounded-lg border border-zinc-900 space-y-1.5">
-                    <span className="text-[9px] uppercase font-bold text-zinc-600 font-mono tracking-widest block">Potongan Uraian (Baris 1-2)</span>
+                  <div className="bg-white p-3.5 rounded-xl border border-slate-200 space-y-1.5 shadow-inner">
+                    <span className="text-[9px] uppercase font-bold text-slate-400 font-mono tracking-widest block">Potongan Uraian (Baris 1-2)</span>
                     <div className="space-y-1 text-xs">
-                      <div className="flex items-start space-x-1 text-zinc-300">
-                        <span className="text-rose-400 font-mono font-bold shrink-0">[1]</span>
+                      <div className="flex items-start space-x-1 text-slate-700 font-medium">
+                        <span className="text-rose-600 font-mono font-bold shrink-0">[1]</span>
                         <p className="line-clamp-1">{item.uraian_1}</p>
                       </div>
                       {item.uraian_2 && (
-                        <div className="flex items-start space-x-1 text-zinc-400">
-                          <span className="text-zinc-600 font-mono font-bold shrink-0">[2]</span>
+                        <div className="flex items-start space-x-1 text-slate-600">
+                          <span className="text-slate-400 font-mono font-bold shrink-0">[2]</span>
                           <p className="line-clamp-1">{item.uraian_2}</p>
                         </div>
                       )}
@@ -868,7 +867,7 @@ export default function AgendaBKForm({ onBack }: AgendaBKFormProps) {
                     {/* View prompt */}
                     <button
                       onClick={() => setSelectedAgendaDetail(item)}
-                      className="text-[10px] text-rose-455 hover:text-white font-mono flex items-center space-x-0.5 mt-2 transition"
+                      className="text-[10px] text-rose-600 hover:text-rose-800 font-mono font-bold flex items-center space-x-0.5 mt-2 transition cursor-pointer"
                     >
                       <span>Lihat seluruh 8 baris uraian kegiatan</span>
                       <ChevronRight className="w-3 h-3" />
@@ -876,8 +875,8 @@ export default function AgendaBKForm({ onBack }: AgendaBKFormProps) {
                   </div>
 
                   {item.keterangan && (
-                    <div className="text-[11px] text-zinc-400 border-t border-zinc-900 pt-2 flex items-start space-x-1.5">
-                      <span className="font-semibold text-zinc-550 shrink-0">Ket:</span>
+                    <div className="text-[11px] text-slate-500 border-t border-slate-100 pt-2 flex items-start space-x-1.5 font-medium">
+                      <span className="font-bold text-slate-400 shrink-0">Ket:</span>
                       <p className="italic leading-relaxed">{item.keterangan}</p>
                     </div>
                   )}
@@ -893,28 +892,28 @@ export default function AgendaBKForm({ onBack }: AgendaBKFormProps) {
 
       {/* DETAIL DIALOG / POPUP FOR 8 COINCIDENT ROWS READINGS */}
       {selectedAgendaDetail && (
-        <div className="fixed inset-0 bg-black/85 backdrop-blur-md flex items-center justify-center p-4 z-50">
-          <div className="w-full max-w-xl bg-zinc-950 border border-zinc-800 rounded-2xl flex flex-col overflow-hidden max-h-[85vh] shadow-[0_35px_70px_-15px_rgba(0,0,0,0.95)]">
+        <div className="fixed inset-0 bg-slate-900/40 backdrop-blur-sm flex items-center justify-center p-4 z-50">
+          <div className="w-full max-w-xl bg-white border border-slate-200 rounded-2xl flex flex-col overflow-hidden max-h-[85vh] shadow-2xl animate-fade-in">
             
             {/* Header */}
-            <div className="border-b border-zinc-900/80 bg-zinc-900/60 pin-6 px-6 py-4 flex items-center justify-between">
+            <div className="border-b border-slate-200 bg-slate-50 px-6 py-4 flex items-center justify-between">
               <div className="flex items-center space-x-3.5">
-                <div className="p-2 bg-rose-500/10 text-rose-400 border border-rose-500/20 rounded-xl">
+                <div className="p-2 bg-rose-50 text-rose-600 border border-rose-100 rounded-xl">
                   <Calendar className="w-5 h-5" />
                 </div>
                 <div>
-                  <h3 className="font-display font-semibold text-white text-sm">
+                  <h3 className="font-display font-bold text-slate-800 text-sm">
                     Detail Agenda - {selectedAgendaDetail.hari}, {selectedAgendaDetail.tanggal}
                   </h3>
-                  <p className="text-[10px] text-zinc-500 font-mono uppercase tracking-wider">
-                    REKAM AGENDA KONSELING SPANJU 3D
+                  <p className="text-[10px] text-slate-400 font-mono uppercase tracking-wider font-bold">
+                    REKAM AGENDA KONSELING SPANJU E-BK
                   </p>
                 </div>
               </div>
 
               <button 
                 onClick={() => setSelectedAgendaDetail(null)}
-                className="p-1 px-2 hover:bg-zinc-900 text-zinc-500 hover:text-zinc-200 border border-zinc-850 rounded-lg cursor-pointer"
+                className="p-1 px-2 hover:bg-slate-100 text-slate-400 hover:text-slate-800 border border-slate-200 rounded-lg cursor-pointer transition"
               >
                 <X className="w-4 h-4" />
               </button>
@@ -924,22 +923,22 @@ export default function AgendaBKForm({ onBack }: AgendaBKFormProps) {
             <div className="flex-1 overflow-y-auto p-6 space-y-5">
               
               <div className="space-y-2">
-                <h4 className="text-[10px] font-mono uppercase tracking-widest text-zinc-500 font-semibold">
+                <h4 className="text-[10px] font-mono uppercase tracking-widest text-slate-400 font-bold">
                   8 Baris Uraian Kegiatan Terjadwal:
                 </h4>
                 
-                <div className="bg-zinc-900/20 rounded-xl border border-zinc-850 p-4 space-y-3">
+                <div className="bg-slate-50 rounded-xl border border-slate-200 p-4 space-y-3 shadow-inner">
                   {[1, 2, 3, 4, 5, 6, 7, 8].map((num) => {
                     const val = (selectedAgendaDetail as any)[`uraian_${num}`];
                     return (
                       <div key={num} className="flex items-start space-x-3 text-xs leading-relaxed">
-                        <span className={`font-mono text-[11px] font-bold shrink-0 w-5 text-right ${val ? 'text-rose-455' : 'text-zinc-700'}`}>
+                        <span className={`font-mono text-[11px] font-bold shrink-0 w-5 text-right ${val ? 'text-rose-600' : 'text-slate-300'}`}>
                           [{num}]
                         </span>
                         {val ? (
-                          <p className="text-zinc-200 font-sans">{val}</p>
+                          <p className="text-slate-700 font-sans font-medium">{val}</p>
                         ) : (
-                          <p className="text-zinc-700 italic font-mono">- Kosong -</p>
+                          <p className="text-slate-300 italic font-mono">- Kosong -</p>
                         )}
                       </div>
                     );
@@ -948,34 +947,34 @@ export default function AgendaBKForm({ onBack }: AgendaBKFormProps) {
               </div>
 
               {/* Extra details list */}
-              <div className="grid grid-cols-2 gap-4 pt-2 border-t border-zinc-900 text-xs">
+              <div className="grid grid-cols-2 gap-4 pt-4 border-t border-slate-100 text-xs">
                 <div className="space-y-1">
-                  <span className="text-[10px] font-mono text-zinc-550 block uppercase tracking-wider">Sasaran Kegiatan</span>
-                  <p className="text-zinc-150 font-medium font-sans">{selectedAgendaDetail.sasaran}</p>
+                  <span className="text-[10px] font-mono text-slate-400 block uppercase tracking-wider font-bold">Sasaran Kegiatan</span>
+                  <p className="text-slate-700 font-bold font-sans">{selectedAgendaDetail.sasaran}</p>
                 </div>
 
                 <div className="space-y-1">
-                  <span className="text-[10px] font-mono text-zinc-550 block uppercase tracking-wider">Tautan Dokumentasi</span>
+                  <span className="text-[10px] font-mono text-slate-400 block uppercase tracking-wider font-bold">Tautan Dokumentasi</span>
                   {selectedAgendaDetail.link_dokumentasi ? (
                     <a 
                       href={selectedAgendaDetail.link_dokumentasi}
                       target="_blank" 
                       rel="noreferrer referrer"
-                      className="text-cyan-400 hover:underline flex items-center space-x-1 font-mono break-all leading-snug"
+                      className="text-sky-655 hover:text-sky-850 hover:underline flex items-center space-x-1 font-mono break-all leading-snug font-bold"
                     >
-                      <Link2 className="w-3.5 h-3.5 text-cyan-400 shrink-0" />
+                      <Link2 className="w-3.5 h-3.5 text-sky-600 shrink-0" />
                       <span>{selectedAgendaDetail.link_dokumentasi}</span>
                     </a>
                   ) : (
-                    <span className="text-zinc-600 italic">Tidak dilampirkan</span>
+                    <span className="text-slate-400 italic font-medium">Tidak dilampirkan</span>
                   )}
                 </div>
               </div>
 
               {selectedAgendaDetail.keterangan && (
-                <div className="pt-4 border-t border-zinc-900 space-y-1">
-                  <span className="text-[10px] font-mono text-zinc-550 block uppercase tracking-wider">Keterangan / Evaluasi</span>
-                  <p className="text-xs text-zinc-350 leading-relaxed italic">
+                <div className="pt-4 border-t border-slate-100 space-y-1">
+                  <span className="text-[10px] font-mono text-slate-400 block uppercase tracking-wider font-bold">Keterangan / Evaluasi</span>
+                  <p className="text-xs text-slate-655 leading-relaxed italic">
                     "{selectedAgendaDetail.keterangan}"
                   </p>
                 </div>
@@ -984,11 +983,11 @@ export default function AgendaBKForm({ onBack }: AgendaBKFormProps) {
             </div>
 
             {/* Modal actions close */}
-            <div className="border-t border-zinc-900 bg-zinc-900/60 px-6 py-4 flex justify-end">
+            <div className="border-t border-slate-200 bg-slate-50 px-6 py-4 flex justify-end">
               <button
                 type="button"
                 onClick={() => setSelectedAgendaDetail(null)}
-                className="px-5 py-2 text-xs font-display bg-zinc-850 hover:bg-zinc-800 text-zinc-300 font-medium border border-zinc-800 hover:border-zinc-700 rounded-xl cursor-pointer"
+                className="px-5 py-2 text-xs font-display bg-white hover:bg-slate-105 hover:bg-slate-100 text-slate-700 font-bold border border-slate-200 rounded-xl cursor-pointer shadow-sm"
               >
                 Tutup Jendela Detail
               </button>

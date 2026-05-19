@@ -86,7 +86,7 @@ export default function App() {
   );
 
   return (
-    <div className="flex flex-col lg:flex-row h-screen w-screen overflow-hidden bg-[#0a0b0d] text-zinc-100" id="main-application-frame">
+    <div className="flex flex-col lg:flex-row h-screen w-screen overflow-hidden bg-slate-50 text-zinc-800" id="main-application-frame">
       {/* Sidebar Panel */}
       <Sidebar 
         links={links}

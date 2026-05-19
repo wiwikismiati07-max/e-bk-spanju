@@ -36,64 +36,64 @@ export const ICON_MAP: Record<string, React.ComponentType<any>> = {
 
 export const COLOR_THEMES = {
   emerald: {
-    bg: 'bg-emerald-500/10 text-emerald-400 border-emerald-500/30',
-    border: 'border-emerald-500',
-    text: 'text-emerald-400',
-    deepShadow: 'shadow-[0_4px_0_0_rgb(16,185,129)]',
-    deepShadowHover: 'hover:shadow-[0_6px_0_0_rgb(16,185,129)]',
-    solidBg: 'bg-emerald-500 text-white border-emerald-600',
+    bg: 'bg-emerald-50/80 text-emerald-800 border-emerald-100',
+    border: 'border-emerald-400',
+    text: 'text-emerald-700',
+    deepShadow: 'shadow-[0_4px_0_0_rgba(16,185,129,0.15)]',
+    deepShadowHover: 'hover:shadow-[0_6px_0_0_rgba(16,185,129,0.25)]',
+    solidBg: 'bg-emerald-600 text-white border-emerald-700 hover:bg-emerald-555',
     accentLine: 'bg-emerald-500',
-    badge: 'bg-emerald-500/10 text-emerald-400 border-emerald-400/20'
+    badge: 'bg-emerald-50 text-emerald-800 border-emerald-200/40'
   },
   indigo: {
-    bg: 'bg-indigo-500/10 text-indigo-400 border-indigo-500/30',
-    border: 'border-indigo-500',
-    text: 'text-indigo-400',
-    deepShadow: 'shadow-[0_4px_0_0_rgb(99,102,241)]',
-    deepShadowHover: 'hover:shadow-[0_6px_0_0_rgb(99,102,241)]',
-    solidBg: 'bg-indigo-600 text-white border-indigo-700',
-    accentLine: 'bg-indigo-500',
-    badge: 'bg-indigo-500/10 text-indigo-400 border-indigo-400/20'
+    bg: 'bg-indigo-50/80 text-indigo-800 border-indigo-100',
+    border: 'border-indigo-400',
+    text: 'text-indigo-700',
+    deepShadow: 'shadow-[0_4px_0_0_rgba(99,102,241,0.15)]',
+    deepShadowHover: 'hover:shadow-[0_6px_0_0_rgba(99,102,241,0.25)]',
+    solidBg: 'bg-indigo-600 text-white border-indigo-700 hover:bg-indigo-555',
+    accentLine: 'bg-indigo-505',
+    badge: 'bg-indigo-50 text-indigo-800 border-indigo-200/40'
   },
   cyan: {
-    bg: 'bg-cyan-500/10 text-cyan-400 border-cyan-500/30',
-    border: 'border-cyan-500',
-    text: 'text-cyan-400',
-    deepShadow: 'shadow-[0_4px_0_0_rgb(6,182,212)]',
-    deepShadowHover: 'hover:shadow-[0_6px_0_0_rgb(6,182,212)]',
-    solidBg: 'bg-cyan-500 text-slate-900 border-cyan-600',
+    bg: 'bg-cyan-50/80 text-cyan-900 border-cyan-100',
+    border: 'border-cyan-400',
+    text: 'text-cyan-700',
+    deepShadow: 'shadow-[0_4px_0_0_rgba(6,182,212,0.15)]',
+    deepShadowHover: 'hover:shadow-[0_6px_0_0_rgba(6,182,212,0.25)]',
+    solidBg: 'bg-cyan-600 text-slate-950 border-cyan-700 hover:bg-cyan-555',
     accentLine: 'bg-cyan-400',
-    badge: 'bg-cyan-500/10 text-cyan-400 border-cyan-400/20'
+    badge: 'bg-cyan-50 text-cyan-900 border-cyan-200/40'
   },
   amber: {
-    bg: 'bg-amber-500/10 text-amber-400 border-amber-500/30',
-    border: 'border-amber-500',
-    text: 'text-amber-400',
-    deepShadow: 'shadow-[0_4px_0_0_rgb(245,158,11)]',
-    deepShadowHover: 'hover:shadow-[0_6px_0_0_rgb(245,158,11)]',
-    solidBg: 'bg-amber-500 text-slate-950 border-amber-600',
+    bg: 'bg-amber-50/80 text-amber-900 border-amber-100',
+    border: 'border-amber-400',
+    text: 'text-amber-700',
+    deepShadow: 'shadow-[0_4px_0_0_rgba(245,158,11,0.15)]',
+    deepShadowHover: 'hover:shadow-[0_6px_0_0_rgba(245,158,11,0.25)]',
+    solidBg: 'bg-amber-500 text-slate-950 border-amber-600 hover:bg-amber-450',
     accentLine: 'bg-amber-500',
-    badge: 'bg-amber-500/10 text-amber-400 border-amber-400/20'
+    badge: 'bg-amber-50 text-amber-900 border-amber-200/40'
   },
   rose: {
-    bg: 'bg-rose-500/10 text-rose-400 border-rose-500/30',
-    border: 'border-rose-500',
-    text: 'text-rose-400',
-    deepShadow: 'shadow-[0_4px_0_0_rgb(244,63,94)]',
-    deepShadowHover: 'hover:shadow-[0_6px_0_0_rgb(244,63,94)]',
-    solidBg: 'bg-rose-500 text-white border-rose-600',
+    bg: 'bg-rose-50/80 text-rose-800 border-rose-100',
+    border: 'border-rose-400',
+    text: 'text-rose-700',
+    deepShadow: 'shadow-[0_4px_0_0_rgba(244,63,94,0.15)]',
+    deepShadowHover: 'hover:shadow-[0_6px_0_0_rgba(244,63,94,0.25)]',
+    solidBg: 'bg-rose-600 text-white border-rose-700 hover:bg-rose-555',
     accentLine: 'bg-rose-500',
-    badge: 'bg-rose-500/10 text-rose-400 border-rose-400/20'
+    badge: 'bg-rose-50 text-rose-800 border-rose-200/40'
   } as const,
   purple: {
-    bg: 'bg-purple-500/10 text-purple-400 border-purple-500/30',
-    border: 'border-purple-500',
-    text: 'text-purple-400',
-    deepShadow: 'shadow-[0_4px_0_0_rgb(168,85,247)]',
-    deepShadowHover: 'hover:shadow-[0_6px_0_0_rgb(168,85,247)]',
-    solidBg: 'bg-purple-600 text-white border-purple-700',
+    bg: 'bg-purple-50/80 text-purple-800 border-purple-100',
+    border: 'border-purple-400',
+    text: 'text-purple-700',
+    deepShadow: 'shadow-[0_4px_0_0_rgba(168,85,247,0.15)]',
+    deepShadowHover: 'hover:shadow-[0_6px_0_0_rgba(168,85,247,0.25)]',
+    solidBg: 'bg-purple-600 text-white border-purple-700 hover:bg-purple-555',
     accentLine: 'bg-purple-500',
-    badge: 'bg-purple-500/10 text-purple-400 border-purple-400/20'
+    badge: 'bg-purple-50 text-purple-800 border-purple-200/40'
   }
 };
 
