@@ -1,0 +1,6 @@
+{
+  "name": "E-BK SPANJU 3D",
+  "description": "Electronic Bimbingan Konseling SMPN 7 Pasuruan - Dasbor interaktif 3D untuk mengelola, menampilkan, mencadangkan, dan membuka berbagai tautan bimbingan konseling dan aplikasi dalam satu layar.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
