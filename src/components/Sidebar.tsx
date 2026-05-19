@@ -12,7 +12,8 @@ import {
   Search,
   Check,
   AlertCircle,
-  Users
+  Users,
+  Calendar
 } from 'lucide-react';
 import { SavedLink, ThemeAccent } from '../types';
 import { COLOR_THEMES, ICON_MAP } from '../utils';
@@ -215,14 +216,15 @@ export default function Sidebar({
         </div>
       </div>
 
-      {/* Dedicated Master Siswa 3D Admin Quick Access */}
-      <div className="mb-4 shrink-0" id="admin-siswa-quick-access">
+      {/* Dedicated Admin Counseling Tools Action Cards */}
+      <div className="mb-4 shrink-0 space-y-3" id="admin-siswa-quick-access">
+        {/* Form Master Siswa Button */}
         <button
           onClick={() => onSelectLink('siswa-master')}
-          className={`w-full py-3.5 px-4 rounded-xl border flex items-center justify-between transition-all duration-155 transform cursor-pointer ${
+          className={`w-full py-3 px-4 rounded-xl border flex items-center justify-between transition-all duration-155 transform cursor-pointer ${
             activeLinkId === 'siswa-master'
               ? 'bg-rose-500 text-white border-rose-600 shadow-md translate-y-[3px]'
-              : 'bg-zinc-900/60 hover:bg-zinc-900 border-zinc-800 text-rose-400 shadow-[0_4px_0_0_rgb(244,63,94)] hover:shadow-[0_6px_0_0_rgb(244,63,94)] hover:-translate-y-[2px] active:translate-y-[4px] active:shadow-none font-semibold'
+              : 'bg-zinc-900/60 hover:bg-zinc-900 border-zinc-850 text-rose-400 shadow-[0_4px_0_0_rgb(244,63,94)] hover:shadow-[0_6px_0_0_rgb(244,63,94)] hover:-translate-y-[2px] active:translate-y-[4px] active:shadow-none font-semibold'
           }`}
         >
           <div className="flex items-center space-x-3 text-left">
@@ -239,6 +241,31 @@ export default function Sidebar({
             </div>
           </div>
           <Sparkles className={`w-4 h-4 animate-pulse ${activeLinkId === 'siswa-master' ? 'text-white' : 'text-rose-400'}`} />
+        </button>
+
+        {/* Agenda Kerja BK Button */}
+        <button
+          onClick={() => onSelectLink('agenda-bk')}
+          className={`w-full py-3 px-4 rounded-xl border flex items-center justify-between transition-all duration-155 transform cursor-pointer ${
+            activeLinkId === 'agenda-bk'
+              ? 'bg-cyan-500 text-slate-950 border-cyan-600 shadow-md translate-y-[3px]'
+              : 'bg-zinc-900/60 hover:bg-zinc-900 border-zinc-850 text-cyan-400 shadow-[0_4px_0_0_rgb(6,182,212)] hover:shadow-[0_6px_0_0_rgb(6,182,212)] hover:-translate-y-[2px] active:translate-y-[4px] active:shadow-none font-semibold'
+          }`}
+        >
+          <div className="flex items-center space-x-3 text-left">
+            <span className={`p-1.5 rounded-lg shrink-0 ${
+              activeLinkId === 'agenda-bk' ? 'bg-black/20' : 'bg-cyan-500/10 border border-cyan-500/20 text-cyan-600'
+            }`}>
+              <Calendar className="w-4 h-4" />
+            </span>
+            <div>
+              <p className="font-display text-xs tracking-wide font-bold">Agenda Kerja BK</p>
+              <p className={`text-[10px] ${activeLinkId === 'agenda-bk' ? 'text-slate-950/70' : 'text-zinc-500'}`}>
+                Saran, 8 Uraian & Laporan Excel
+              </p>
+            </div>
+          </div>
+          <Sparkles className={`w-4 h-4 animate-pulse ${activeLinkId === 'agenda-bk' ? 'text-slate-950' : 'text-cyan-400'}`} />
         </button>
       </div>
 

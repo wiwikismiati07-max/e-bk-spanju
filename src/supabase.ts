@@ -1,5 +1,5 @@
 import { createClient } from '@supabase/supabase-js';
-import { Siswa } from './types';
+import { Siswa, AgendaBK } from './types';
 
 // Retrieve credentials safely
 const supabaseUrl = (import.meta as any).env.VITE_SUPABASE_URL;
@@ -142,3 +142,109 @@ export const supabaseService = {
     return true;
   }
 };
+
+/**
+ * Service helpers for Counseling Agenda (Agenda Kerja BK)
+ */
+export const supabaseAgendaService = {
+  /**
+   * Fetch all agenda
+   */
+  async getAgenda(): Promise<AgendaBK[]> {
+    const supabase = getSupabase();
+    if (!supabase) {
+      throw new Error('Supabase is not configured yet. Setup keys in secrets.');
+    }
+
+    const { data, error } = await supabase
+      .from('agenda_bk')
+      .select('*')
+      .order('tanggal', { ascending: false });
+
+    if (error) {
+      throw error;
+    }
+    return data || [];
+  },
+
+  /**
+   * Upsert a search or single entry
+   */
+  async upsertAgenda(record: AgendaBK): Promise<AgendaBK> {
+    const supabase = getSupabase();
+    if (!supabase) {
+      throw new Error('Supabase is not configured yet. Setup keys in secrets.');
+    }
+
+    const row: any = {
+      tanggal: record.tanggal,
+      hari: record.hari,
+      uraian_1: record.uraian_1,
+      uraian_2: record.uraian_2,
+      uraian_3: record.uraian_3,
+      uraian_4: record.uraian_4,
+      uraian_5: record.uraian_5,
+      uraian_6: record.uraian_6,
+      uraian_7: record.uraian_7,
+      uraian_8: record.uraian_8,
+      sasaran: record.sasaran,
+      link_dokumentasi: record.link_dokumentasi,
+      keterangan: record.keterangan,
+    };
+
+    if (record.id) {
+      row.id = record.id;
+    }
+
+    const { data, error } = await supabase
+      .from('agenda_bk')
+      .upsert(row)
+      .select();
+
+    if (error) {
+      throw error;
+    }
+    return data[0];
+  },
+
+  /**
+   * Delete an Agenda by ID
+   */
+  async deleteAgenda(id: string): Promise<boolean> {
+    const supabase = getSupabase();
+    if (!supabase) {
+      throw new Error('Supabase is not configured yet. Setup keys in secrets.');
+    }
+
+    const { error } = await supabase
+      .from('agenda_bk')
+      .delete()
+      .eq('id', id);
+
+    if (error) {
+      throw error;
+    }
+    return true;
+  },
+
+  /**
+   * Clear all agenda records
+   */
+  async clearAllAgenda(): Promise<boolean> {
+    const supabase = getSupabase();
+    if (!supabase) {
+      throw new Error('Supabase is not configured yet. Setup keys in secrets.');
+    }
+
+    const { error } = await supabase
+      .from('agenda_bk')
+      .delete()
+      .neq('tanggal', ''); // Delete all matching rows
+
+    if (error) {
+      throw error;
+    }
+    return true;
+  }
+};
+

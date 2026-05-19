@@ -27,3 +27,21 @@ export interface Siswa {
   kelas: string;
   created_at?: string;
 }
+
+export interface AgendaBK {
+  id?: string;
+  tanggal: string;
+  hari: string;
+  uraian_1: string;
+  uraian_2: string;
+  uraian_3: string;
+  uraian_4: string;
+  uraian_5: string;
+  uraian_6: string;
+  uraian_7: string;
+  uraian_8: string;
+  sasaran: string;
+  link_dokumentasi: string;
+  keterangan: string;
+  created_at?: string;
+}

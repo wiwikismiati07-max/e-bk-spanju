@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Sidebar from './components/Sidebar';
 import LinkViewer from './components/LinkViewer';
 import SiswaMasterForm from './components/SiswaMasterForm';
+import AgendaBKForm from './components/AgendaBKForm';
 import { SavedLink } from './types';
 import { DEFAULT_LINKS, CATEGORIES } from './data/defaultLinks';
 
@@ -100,6 +101,8 @@ export default function App() {
       {/* Main Viewport Panel */}
       {activeLinkId === 'siswa-master' ? (
         <SiswaMasterForm onBack={() => setActiveLinkId(null)} />
+      ) : activeLinkId === 'agenda-bk' ? (
+        <AgendaBKForm onBack={() => setActiveLinkId(null)} />
       ) : (
         <LinkViewer 
           activeLink={activeLink}
